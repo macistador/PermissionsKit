@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "PermissionsKit",
-    platforms: [.iOS(.v15)],
+    platforms: [.iOS(.v15)], //v15
     products: [
         .library(
             name: "PermissionsKit",
