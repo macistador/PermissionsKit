@@ -31,7 +31,7 @@ Native permissions framework facilitating collecting users access approval to Ca
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/macistador/PermissionsKit/Package", from: "0.0.2")
+    .package(url: "https://github.com/macistador/PermissionsKit/Package", from: "0.0.3")
 ]
 ```
 

@@ -13,6 +13,9 @@
 		142433802C9D82370036B8FB /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1424337F2C9D82370036B8FB /* PermissionsKit */; };
 		142433832C9DBF380036B8FB /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 142433822C9DBF380036B8FB /* PermissionsKit */; };
 		148529DC2CA09FD800ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 148529DB2CA09FD800ADB395 /* PermissionsKit */; };
+		14852A272CA814B800ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14852A262CA814B800ADB395 /* PermissionsKit */; };
+		14852A2A2CA814C900ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14852A292CA814C900ADB395 /* PermissionsKit */; };
+		14852A2D2CA842AB00ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14852A2C2CA842AB00ADB395 /* PermissionsKit */; };
 		14F8635A2C931A5500FAA7A1 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14F863592C931A5500FAA7A1 /* PermissionsKit */; };
 		14FB3CE52C9DDFDD00AA0C5D /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14FB3CE42C9DDFDD00AA0C5D /* PermissionsKit */; };
 		14FB3CE82C9DE05E00AA0C5D /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14FB3CE72C9DE05E00AA0C5D /* PermissionsKit */; };
@@ -41,8 +44,11 @@
 				1424337A2C9D73630036B8FB /* PermissionsKit in Frameworks */,
 				1424337D2C9D7AEF0036B8FB /* PermissionsKit in Frameworks */,
 				142433832C9DBF380036B8FB /* PermissionsKit in Frameworks */,
+				14852A2A2CA814C900ADB395 /* PermissionsKit in Frameworks */,
+				14852A272CA814B800ADB395 /* PermissionsKit in Frameworks */,
 				14F8635A2C931A5500FAA7A1 /* PermissionsKit in Frameworks */,
 				148529DC2CA09FD800ADB395 /* PermissionsKit in Frameworks */,
+				14852A2D2CA842AB00ADB395 /* PermissionsKit in Frameworks */,
 				14FB3CE52C9DDFDD00AA0C5D /* PermissionsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +101,9 @@
 				14FB3CE42C9DDFDD00AA0C5D /* PermissionsKit */,
 				14FB3CE72C9DE05E00AA0C5D /* PermissionsKit */,
 				148529DB2CA09FD800ADB395 /* PermissionsKit */,
+				14852A262CA814B800ADB395 /* PermissionsKit */,
+				14852A292CA814C900ADB395 /* PermissionsKit */,
+				14852A2C2CA842AB00ADB395 /* PermissionsKit */,
 			);
 			productName = Sample;
 			productReference = 14F863432C92114F00FAA7A1 /* PermissionKit-Sample.app */;
@@ -125,7 +134,7 @@
 			mainGroup = 14F8633A2C92114F00FAA7A1;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				148529DA2CA09FD800ADB395 /* XCLocalSwiftPackageReference "../Package" */,
+				14852A2B2CA842AB00ADB395 /* XCLocalSwiftPackageReference "../Package" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 14F863442C92114F00FAA7A1 /* Products */;
@@ -305,7 +314,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
@@ -355,7 +364,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
@@ -396,7 +405,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		148529DA2CA09FD800ADB395 /* XCLocalSwiftPackageReference "../Package" */ = {
+		14852A2B2CA842AB00ADB395 /* XCLocalSwiftPackageReference "../Package" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../Package;
 		};
@@ -424,6 +433,18 @@
 			productName = PermissionsKit;
 		};
 		148529DB2CA09FD800ADB395 /* PermissionsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PermissionsKit;
+		};
+		14852A262CA814B800ADB395 /* PermissionsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PermissionsKit;
+		};
+		14852A292CA814C900ADB395 /* PermissionsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PermissionsKit;
+		};
+		14852A2C2CA842AB00ADB395 /* PermissionsKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PermissionsKit;
 		};

@@ -20,19 +20,31 @@ struct ContentView: View {
     @State private var locationPermissionStatus: LocationPermissionStatus?
     @State private var showPrepromptForPermission: PermissionsKit.Permission?
     @State private var showReoptinForPermission: PermissionsKit.Permission?
+    @State private var showMultiPermissionsView: Bool = false
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .center) {
-                permissionView(for: .camera)
-                permissionView(for: .contacts)
-                permissionView(for: .pushNotification)
-                permissionView(for: .photoLibrary)
-                permissionView(for: .location(usage: .inUse))
-                permissionView(for: .tracking)
-                permissionView(for: .microphone)
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .center) {
+                    allPermissionsView
+                    Divider()
+                    permissionView(for: .camera)
+                    permissionView(for: .contacts)
+                    permissionView(for: .pushNotification)
+                    permissionView(for: .photoLibrary)
+                    permissionView(for: .location(usage: .inUse))
+                    permissionView(for: .tracking)
+                    permissionView(for: .microphone)
+                }
+                .padding()
             }
-            .padding()
+            .navigationDestination(isPresented: $showMultiPermissionsView, destination: {
+                MultiPermissionsPromptsView(permissions: [.camera, .microphone, .photoLibrary, .contacts, .location(usage: .inUse), .pushNotification, .tracking]) {
+                    showMultiPermissionsView = false
+                } skipAction: {
+                    showMultiPermissionsView = false
+                }
+            })
         }
         .task {
             await fetchPermissionsStatus()
@@ -113,6 +125,16 @@ struct ContentView: View {
             Text("Direct ask")
         }
         .buttonStyle(BorderedButtonStyle())
+    }
+    
+    @ViewBuilder
+    private var allPermissionsView: some View {
+        Button {
+            showMultiPermissionsView = true
+        } label: {
+            Text("Prompt for multiple permissions at once")
+        }
+        .padding(.vertical)
     }
     
     // MARK: - Private methods
