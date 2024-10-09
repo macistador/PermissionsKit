@@ -12,6 +12,7 @@
 		1424337D2C9D7AEF0036B8FB /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1424337C2C9D7AEF0036B8FB /* PermissionsKit */; };
 		142433802C9D82370036B8FB /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1424337F2C9D82370036B8FB /* PermissionsKit */; };
 		142433832C9DBF380036B8FB /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 142433822C9DBF380036B8FB /* PermissionsKit */; };
+		14649EB92CB6BDBA0085E23B /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14649EB82CB6BDBA0085E23B /* PermissionsKit */; };
 		148529DC2CA09FD800ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 148529DB2CA09FD800ADB395 /* PermissionsKit */; };
 		14852A272CA814B800ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14852A262CA814B800ADB395 /* PermissionsKit */; };
 		14852A2A2CA814C900ADB395 /* PermissionsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14852A292CA814C900ADB395 /* PermissionsKit */; };
@@ -39,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1424336D2C9C24FA0036B8FB /* PermissionsKit in Frameworks */,
+				14649EB92CB6BDBA0085E23B /* PermissionsKit in Frameworks */,
 				142433802C9D82370036B8FB /* PermissionsKit in Frameworks */,
 				14FB3CE82C9DE05E00AA0C5D /* PermissionsKit in Frameworks */,
 				1424337A2C9D73630036B8FB /* PermissionsKit in Frameworks */,
@@ -104,6 +106,7 @@
 				14852A262CA814B800ADB395 /* PermissionsKit */,
 				14852A292CA814C900ADB395 /* PermissionsKit */,
 				14852A2C2CA842AB00ADB395 /* PermissionsKit */,
+				14649EB82CB6BDBA0085E23B /* PermissionsKit */,
 			);
 			productName = Sample;
 			productReference = 14F863432C92114F00FAA7A1 /* PermissionKit-Sample.app */;
@@ -134,7 +137,7 @@
 			mainGroup = 14F8633A2C92114F00FAA7A1;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				14852A2B2CA842AB00ADB395 /* XCLocalSwiftPackageReference "../Package" */,
+				14649EB72CB6BDBA0085E23B /* XCLocalSwiftPackageReference "../../PermissionsKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 14F863442C92114F00FAA7A1 /* Products */;
@@ -405,9 +408,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		14852A2B2CA842AB00ADB395 /* XCLocalSwiftPackageReference "../Package" */ = {
+		14649EB72CB6BDBA0085E23B /* XCLocalSwiftPackageReference "../../PermissionsKit" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Package;
+			relativePath = ../../PermissionsKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -429,6 +432,10 @@
 			productName = PermissionsKit;
 		};
 		142433822C9DBF380036B8FB /* PermissionsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PermissionsKit;
+		};
+		14649EB82CB6BDBA0085E23B /* PermissionsKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PermissionsKit;
 		};

@@ -24,20 +24,18 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .center) {
-                    allPermissionsView
-                    Divider()
-                    permissionView(for: .camera)
-                    permissionView(for: .contacts)
-                    permissionView(for: .pushNotification)
-                    permissionView(for: .photoLibrary)
-                    permissionView(for: .location(usage: .inUse))
-                    permissionView(for: .tracking)
-                    permissionView(for: .microphone)
-                }
-                .padding()
+            List {
+                Section { allPermissionsView }
+                Section { permissionView(for: .camera) }
+                Section { permissionView(for: .contacts) }
+                Section { permissionView(for: .pushNotification) }
+                Section { permissionView(for: .photoLibrary) }
+                Section { permissionView(for: .location(usage: .inUse)) }
+                Section { permissionView(for: .tracking) }
+                Section { permissionView(for: .microphone) }
             }
+            .navigationTitle("PermissionKit")
+            .navigationBarTitleDisplayMode(.large)
             .navigationDestination(isPresented: $showMultiPermissionsView, destination: {
                 MultiPermissionsPromptsView(permissions: [.camera, .microphone, .photoLibrary, .contacts, .location(usage: .inUse), .pushNotification, .tracking]) {
                     showMultiPermissionsView = false
@@ -71,7 +69,7 @@ struct ContentView: View {
     func permissionView(for permission: Permission) -> some View {
         HStack {
             Text(permission.title)
-                .font(.largeTitle)
+                .font(.title)
             Spacer()
             Text(emojiStatus(for: permission))
         }
@@ -83,7 +81,6 @@ struct ContentView: View {
             askPermissionButton(for: permission)
                 .disabled(hasBeenPrompted(for: permission))
         }
-        Divider()
     }
     
     @ViewBuilder
@@ -132,9 +129,10 @@ struct ContentView: View {
         Button {
             showMultiPermissionsView = true
         } label: {
-            Text("Prompt for multiple permissions at once")
+            NavigationLink(value: "") {
+                Label("Multiple permissions at once", systemImage: "checklist.checked")
+            }
         }
-        .padding(.vertical)
     }
     
     // MARK: - Private methods
