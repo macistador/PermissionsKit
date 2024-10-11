@@ -1,6 +1,10 @@
 # PermissionsKit
 Native permissions framework facilitating collecting users access approval to Camera, Photo Library, Microphone, Contacts, Location, Notifications and Tracking.
 
+<p align="center">
+  <img src="https://github.com/macistador/PermissionsKit/blob/main/IconPermissionsKit.png"  width="300" height="300"/>
+</p>
+
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -16,7 +20,7 @@ Native permissions framework facilitating collecting users access approval to Ca
 - [x] Re-engage with built-in re-optins prompts 
 
 <p align="center">
-  <img src="https://github.com/macistador/PermissionsKit/blob/main/demo.gif" />
+  <img src="https://github.com/macistador/PermissionsKit/blob/main/demo.gif"/>
 </p>
 
 ## Requirements
