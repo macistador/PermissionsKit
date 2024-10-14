@@ -10,6 +10,7 @@ Native permissions framework facilitating collecting users access approval to Ca
 - [Installation](#installation)
 - [Supported permissions](#Supported_permissions)
 - [Usage](#usage)
+- [Other packages](#other-packages)
 - [Credits](#credits)
 - [License](#license)
 
@@ -144,6 +145,22 @@ With __UIKit__
 
 
 For more details you may take a look at the sample project.
+
+## Other packages
+
+Meanwhile this library works well alone, it is meant to be complementary to the following app bootstrap packages suite: 
+
+- [CoreKit](https://github.com/macistador/CoreKit)
+- [DesignKit](https://github.com/macistador/DesignKit)
+- [VisualKit](https://github.com/macistador/VisualKit)
+- [MediasKit](https://github.com/macistador/MediasKit)
+- [CameraKit](https://github.com/macistador/CameraKit)
+- [PermissionsKit](https://github.com/macistador/PermissionsKit)
+- [SocialKit](https://github.com/macistador/SocialKit)
+- [AnalyzeKit](https://github.com/macistador/AnalyzeKit)
+- [IntelligenceKit](https://github.com/macistador/IntelligenceKit)
+- [AdsKit](https://github.com/macistador/AdsKit)
+- [PayKit](https://github.com/macistador/PayKit)
 
 ## Credits
 
