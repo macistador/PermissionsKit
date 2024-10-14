@@ -13,10 +13,10 @@ public enum PromptKind {
 }
 
 public struct PermissionPromptView: View {
-    
+
     private var text: String
     @StateObject var viewModel: PermissionPromptViewModel
-    
+
     public init(_ promptKind: PromptKind, for permission: Permission, title: String, completion: ((Bool) -> ())? = nil) {
         self.text = title
         self._viewModel = StateObject(wrappedValue: PermissionPromptViewModel(permission: permission, promptKind: promptKind, completion: completion))
@@ -31,32 +31,18 @@ public struct PermissionPromptView: View {
             case .location: LocationPrepromptView(text: text, viewModel: viewModel)
             default: DefaultPrepromptView(text: text, viewModel: viewModel)
             }
-            
+
         case .reoptin:
             PermissionReoptinView(text: text, viewModel: viewModel)
         }
     }
-    
-    public static func setupTheme(primaryButton: Color,
-                           secondaryButton: Color,
-                           disabledButton: Color,
-                           primaryButtonText: Color,
-                           primaryText: Color,
-                           secondaryText: Color,
-                           primaryBackground: Color,
-                           secondaryBackground: Color,
-                           primaryFormBackground: Color,
-                           secondaryFormBackground: Color) {
-        PromptColor.primaryButton = primaryButton
-        PromptColor.secondaryButton = secondaryButton
-        PromptColor.disabledButton = disabledButton
-        PromptColor.primaryButtonText = primaryButtonText
-        PromptColor.primaryText = primaryText
-        PromptColor.secondaryText = secondaryText
-        PromptColor.primaryBackground = primaryBackground
-        PromptColor.secondaryBackground = secondaryBackground
-        PromptColor.primaryFormBackground = primaryFormBackground
-        PromptColor.secondaryFormBackground = secondaryFormBackground
+
+    public static func setupTheme(colors: PromptTheme.Colors? = nil,
+                                  fonts: PromptTheme.Fonts? = nil,
+                                  wordings: PromptTheme.Wordings? = nil) {
+        PromptTheme.colors = colors ?? PromptTheme.colors
+        PromptTheme.fonts = fonts ?? PromptTheme.fonts
+        PromptTheme.wordings = wordings ?? PromptTheme.wordings
     }
 }
 

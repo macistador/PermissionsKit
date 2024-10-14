@@ -19,7 +19,7 @@ struct LocationPrepromptView: View {
         VStack {
             Spacer()
             
-            PromptTitleView(title: "Location", subtitle: text, enabled: false)
+            PromptTitleView(title: viewModel.permission.title, subtitle: text, withGradient: false)
             
             ZStack {
                 wave(withDelay: 0, binding: $waveAnimation1, shouldRepeat: false)
@@ -38,7 +38,7 @@ struct LocationPrepromptView: View {
             .padding(.vertical, 60)
             .padding(.bottom)
             
-            PromptButton(title: "Authorize", action: {
+            PromptButton(title: PromptTheme.wordings.authorizeButton, action: {
                 Task {
                     let hasGrantedPermission = await viewModel.showPermissionPrompt()
                     if hasGrantedPermission || !viewModel.shouldFallbackToReoptin {
@@ -58,7 +58,7 @@ struct LocationPrepromptView: View {
             Spacer()
         }
         .padding()
-        .background(PromptColor.primaryBackground)
+        .background(PromptTheme.colors.primaryBackground)
         .task {
             if await viewModel.shouldClosePrompt() {
                 if let completion = viewModel.completion {

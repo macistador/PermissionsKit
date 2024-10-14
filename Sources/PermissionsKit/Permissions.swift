@@ -19,13 +19,13 @@ public enum Permission: Equatable {
     
     public var title: String {
         switch self {
-        case .pushNotification: "Notifications"
-        case .camera: "Camera"
-        case .photoLibrary: "Photo library"
-        case .contacts: "Contacts"
-        case .tracking: "Tracking"
-        case .microphone: "Microphone"
-        case .location: "Location"
+        case .pushNotification: PromptTheme.wordings.pushNotification
+        case .camera: PromptTheme.wordings.camera
+        case .photoLibrary: PromptTheme.wordings.photoLibrary
+        case .contacts: PromptTheme.wordings.contacts
+        case .tracking: PromptTheme.wordings.tracking
+        case .microphone: PromptTheme.wordings.microphone
+        case .location: PromptTheme.wordings.location
         }
     }
     

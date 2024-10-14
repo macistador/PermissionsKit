@@ -30,7 +30,7 @@ struct PushNotifPrepromptView: View {
     var body: some View {
         VStack {
             Spacer()
-            PromptTitleView(title: "Accept notifications", subtitle: text)
+            PromptTitleView(title: viewModel.permission.title, subtitle: text)
             
             ZStack {
                 ForEach(Array(notifications.enumerated()), id: \.element.id) { index, notif in
@@ -45,7 +45,7 @@ struct PushNotifPrepromptView: View {
             .padding(.vertical)
             .padding(.bottom)
                         
-            PromptButton(title: "Authorize", action: {
+            PromptButton(title: PromptTheme.wordings.authorizeButton, action: {
                 Task {
                     let hasGrantedPermission = await viewModel.showPermissionPrompt()
                     if hasGrantedPermission || !viewModel.shouldFallbackToReoptin {
@@ -65,7 +65,7 @@ struct PushNotifPrepromptView: View {
             Spacer()
         }
         .padding()
-        .background(PromptColor.primaryBackground)
+        .background(PromptTheme.colors.primaryBackground)
         .task {
             if await viewModel.shouldClosePrompt() {
                 if let completion = viewModel.completion {
@@ -105,10 +105,10 @@ struct PushNotifPrepromptView: View {
                 Text(title)
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundStyle(PromptColor.primaryText)
+                    .foregroundStyle(PromptTheme.colors.primaryText)
                 Text(subtitle)
                     .font(.system(size: 13))
-                    .foregroundStyle(PromptColor.primaryText)
+                    .foregroundStyle(PromptTheme.colors.primaryText)
             }
             .padding(5)
             
@@ -116,7 +116,7 @@ struct PushNotifPrepromptView: View {
             
             Text("now")
                 .font(.system(size: 14))
-                .foregroundStyle(PromptColor.secondaryText)
+                .foregroundStyle(PromptTheme.colors.secondaryText)
                 .padding(5)
                 .padding(.bottom)
                 .padding(.trailing)

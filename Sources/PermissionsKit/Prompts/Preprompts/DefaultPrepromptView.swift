@@ -72,7 +72,7 @@ struct DefaultPrepromptView: View {
             .padding(.vertical, 60)
             .padding(.bottom)
                         
-            PromptButton(title: "Authorize", action: {
+            PromptButton(title: PromptTheme.wordings.authorizeButton, action: {
                 Task {
                     let hasGrantedPermission = await viewModel.showPermissionPrompt()
                     if hasGrantedPermission || !viewModel.shouldFallbackToReoptin {
@@ -92,7 +92,7 @@ struct DefaultPrepromptView: View {
             Spacer()
         }
         .padding()
-        .background(PromptColor.primaryBackground)
+        .background(PromptTheme.colors.primaryBackground)
         .task {
             if await viewModel.shouldClosePrompt() {
                 if let completion = viewModel.completion {

@@ -32,7 +32,7 @@ struct PermissionLineView: View {
                 } else {
                     Image(systemName: iconName)
                         .font(.system(size: 23))
-                        .foregroundStyle(PromptColor.primaryText)
+                        .foregroundStyle(PromptTheme.colors.primaryText)
                 }
                 Spacer()
             }
@@ -42,10 +42,10 @@ struct PermissionLineView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(PromptColor.primaryText)
+                    .foregroundStyle(PromptTheme.colors.primaryText)
                 Text(subtitle)
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(PromptColor.primaryText)
+                    .foregroundStyle(PromptTheme.colors.primaryText)
             }
             .opacity(hasGranted ? 0.5 : 1)
 
@@ -53,14 +53,14 @@ struct PermissionLineView: View {
 
             Toggle("", isOn: $hasGranted)
                 .frame(width: 50)
-                .tint(PromptColor.primaryButton)
+                .tint(PromptTheme.colors.primaryButton)
                 .disabled(hasGranted)
                 .padding(.trailing)
         }
         .padding(10)
         .background {
             RoundedRectangle(cornerRadius: 25)
-                .foregroundStyle(PromptColor.secondaryBackground)
+                .foregroundStyle(PromptTheme.colors.secondaryBackground)
         }
         .padding(.horizontal)
         .padding(.vertical, 10)

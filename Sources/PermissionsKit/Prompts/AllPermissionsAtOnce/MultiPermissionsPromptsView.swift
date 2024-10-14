@@ -34,25 +34,25 @@ public struct MultiPermissionsPromptsView: View {
                 permissions
                     .padding(.bottom)
                 
-                PromptButton(title: "Continue", action: {
+                PromptButton(title: PromptTheme.wordings.continueButton, action: {
                     nextAction()
                 }, state: $viewModel.nextButtonState)
                 
                 if let skipAction {
                     Button("Skip") { skipAction() }
                         .font(Font.system(size: 18, weight: .semibold))
-                        .foregroundStyle(PromptColor.secondaryText)
+                        .foregroundStyle(PromptTheme.colors.secondaryText)
                         .padding(.top)
                 }
                 
                 Spacer()
             }
         }
-        .background(PromptColor.primaryBackground)
-        .alert("Allow access", isPresented: $viewModel.showGoToDeviceSettingsAlert, actions: {
-            Button("Continue", role: .none) { viewModel.redirectToPermissionSettings() }
+        .background(PromptTheme.colors.primaryBackground)
+        .alert(PromptTheme.wordings.redirectSettingsAlertTitle, isPresented: $viewModel.showGoToDeviceSettingsAlert, actions: {
+            Button(PromptTheme.wordings.continueButton, role: .none) { viewModel.redirectToPermissionSettings() }
         }, message: {
-            Text("For full app functionality, please enable permissions in your device settings.")
+            Text(PromptTheme.wordings.redirectSettingsAlertText)
         })
     }
         

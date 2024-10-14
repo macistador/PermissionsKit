@@ -20,7 +20,7 @@ struct SampleApp: App {
     }
     
     private func setupPermissionPromptTheme() {
-        PermissionPromptView.setupTheme(primaryButton: Color.primaryButton,
+        PermissionPromptView.setupTheme(colors: .init(primaryButton: Color.primaryButton,
                                         secondaryButton: Color.secondaryButton,
                                         disabledButton: Color.disabledButton,
                                         primaryButtonText: Color.primaryButtonText,
@@ -29,6 +29,6 @@ struct SampleApp: App {
                                         primaryBackground: Color.primaryBackground,
                                         secondaryBackground: Color.secondaryBackground,
                                         primaryFormBackground: Color.primaryFormBackground,
-                                        secondaryFormBackground: Color.secondaryFormBackground)
+                                        secondaryFormBackground: Color.secondaryFormBackground))
     }
 }

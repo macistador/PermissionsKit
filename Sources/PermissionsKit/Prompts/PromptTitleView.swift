@@ -12,35 +12,34 @@ struct PromptTitleView: View {
     var title: String
     var subtitle: String?
     var alignment: HorizontalAlignment = .center
-    var enabled: Bool = true
+    var withGradient: Bool = true
     @State private var animate: Bool = false
 
     var body: some View {
         VStack(alignment: alignment, spacing: 5) {
             Text(title)
-                .font(.system(size: enabled ? 32: 25, weight: .black, design: .rounded))
+                .font(.system(size: PromptTheme.fonts.titleSize + (withGradient ? 7 : 0), weight: .black, design: .rounded))
                 .textCase(.uppercase)
                 .multilineTextAlignment(.center)
-                .foregroundStyle(PromptColor.primaryText)
+                .foregroundStyle(PromptTheme.colors.primaryText)
                 .overlay {
-                    if enabled {
+                    if withGradient {
                         RadialGradient(colors: [Color.accentColor, Color.accentColor], center: UnitPoint(x: animate ? 0.3 : 0.8, y: animate ? 0.4 : 0.7), startRadius: 20, endRadius: 200)
                             .animation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true), value: animate)
                             .mask {
                                 Text(title)
                                     .textCase(.uppercase)
-                                    .font(.system(size: enabled ? 32: 25, weight: .black, design: .rounded))
+                                    .font(.system(size: PromptTheme.fonts.titleSize + (withGradient ? 7 : 0), weight: .black, design: .rounded))
                                     .multilineTextAlignment(.center)
-                                    .foregroundStyle(PromptColor.primaryText)
+                                    .foregroundStyle(PromptTheme.colors.primaryText)
                             }
                     }
                 }
             if let subtitle {
                 Text(subtitle)
-//                    .fontDesign(.rounded)
-                    .fontWeight(.bold)
+                    .font(.system(size: PromptTheme.fonts.subtitleSize, weight: .bold, design: .rounded))
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(PromptColor.primaryText)
+                    .foregroundStyle(PromptTheme.colors.primaryText)
             }
         }
         .padding()

@@ -22,7 +22,7 @@ struct PromptButton: View {
 
         var backgroundColor: Color {
             switch self {
-            case .primary(let isDestructive): isDestructive ? .red : PromptColor.primaryButton
+            case .primary(let isDestructive): isDestructive ? .red : PromptTheme.colors.primaryButton
             case .secondary: .clear
             case .tertiary: .clear
             }
@@ -30,7 +30,7 @@ struct PromptButton: View {
         
         var disabledBackgroundColor: Color {
             switch self {
-            case .primary: PromptColor.disabledButton
+            case .primary: PromptTheme.colors.disabledButton
             case .secondary: .clear
             case .tertiary: .clear
             }
@@ -39,7 +39,7 @@ struct PromptButton: View {
         var borderColor: Color {
             switch self {
             case .primary: .black
-            case .secondary(let isDestructive): isDestructive ? .red : PromptColor.secondaryButton
+            case .secondary(let isDestructive): isDestructive ? .red : PromptTheme.colors.secondaryButton
             case .tertiary: .clear
             }
         }
@@ -47,24 +47,24 @@ struct PromptButton: View {
         var disabledBorderColor: Color {
             switch self {
             case .primary: .black
-            case .secondary: PromptColor.disabledButton
+            case .secondary: PromptTheme.colors.disabledButton
             case .tertiary: .clear
             }
         }
         
         var textColor: Color {
             switch self {
-            case .primary: PromptColor.primaryButtonText
-            case .secondary(let isDestructive): isDestructive ? .red : PromptColor.primaryButtonText
-            case .tertiary(let isDestructive): isDestructive ? .red : PromptColor.primaryText
+            case .primary: PromptTheme.colors.primaryButtonText
+            case .secondary(let isDestructive): isDestructive ? .red : PromptTheme.colors.primaryButtonText
+            case .tertiary(let isDestructive): isDestructive ? .red : PromptTheme.colors.primaryText
             }
         }
         
         var disabledTextColor: Color {
             switch self {
-            case .primary: PromptColor.primaryBackground.opacity(0.5)
-            case .secondary: PromptColor.disabledButton
-            case .tertiary: PromptColor.disabledButton
+            case .primary: PromptTheme.colors.primaryBackground.opacity(0.5)
+            case .secondary: PromptTheme.colors.disabledButton
+            case .tertiary: PromptTheme.colors.disabledButton
             }
         }
         
@@ -86,6 +86,7 @@ struct PromptButton: View {
     }
     
     var title: String
+    var fontSize: Double = PromptTheme.fonts.buttonTextSize
     var style: Style = .primary(destructive: false)
     var action: () -> Void
     @Binding var state: State
@@ -101,18 +102,16 @@ struct PromptButton: View {
                 ZStack {
                     Capsule()
                         .fill(state == .enabled ? style.borderColor : style.disabledBorderColor)
-//                        .stroke(state == .enabled ? style.borderColor : style.disabledBorderColor, lineWidth: 3.0)
                         .offset(y: 5)
                     Capsule()
                         .fill(state == .enabled ? style.backgroundColor : style.disabledBackgroundColor)
-//                        .stroke(state == .enabled ? style.borderColor : style.disabledBorderColor, lineWidth: 3.0)
                         .overlay {
                             if state == .loading {
                                 ProgressView()
                             }
                             else {
                                 Text(title)
-                                    .font(.system(size: 24, weight: .bold))
+                                    .font(.system(size: fontSize, weight: .bold))
                                     .textCase(.uppercase)
                                     .foregroundStyle(state == .enabled ? style.textColor : style.disabledTextColor)
                             }

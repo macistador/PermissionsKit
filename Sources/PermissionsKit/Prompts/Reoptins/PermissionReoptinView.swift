@@ -19,11 +19,13 @@ public struct PermissionReoptinView: View {
     public var body: some View {
         VStack {
             Spacer()
-            
-            PromptTitleView(title: "Activate \(viewModel.permission.title)", subtitle: text, enabled: false)
+
+            PromptTitleView(title: PromptTheme.wordings.reoptinTitle + viewModel.permission.title,
+                            subtitle: text,
+                            withGradient: false)
 
             VStack(alignment: .leading) {
-                Text("The app wants to access to:")
+                Text(PromptTheme.wordings.reoptinSubtitle)
                     .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundStyle(.tertiary)
@@ -69,19 +71,19 @@ public struct PermissionReoptinView: View {
                                    toggleIsOn: $animationToggleIsOn)
                     .zIndex(10)
                 }
-                .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(PromptColor.secondaryFormBackground))
+                .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(PromptTheme.colors.secondaryFormBackground))
                 .padding(.horizontal, 10)
                 .padding(.bottom, 10)
             }
-            .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(PromptColor.primaryFormBackground))
+            .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(PromptTheme.colors.primaryFormBackground))
             .padding(.vertical)
             
-            PromptButton(title: "Open settings", action: {
+            PromptButton(title: PromptTheme.wordings.settingsButton, action: {
                 viewModel.redirectToPermissionSettings()
             }, state: .constant(.enabled))
             
             if showDismiss {
-                PromptButton(title: "Maybe later", style: .tertiary(destructive: false), action: {
+                PromptButton(title: PromptTheme.wordings.laterButton, style: .tertiary(destructive: false), action: {
                     if let completion = viewModel.completion {
                         completion(false)
                     } else {
@@ -94,7 +96,7 @@ public struct PermissionReoptinView: View {
             Spacer()
         }
         .padding()
-        .background(PromptColor.primaryBackground)
+        .background(PromptTheme.colors.primaryBackground)
         .task {
             if await viewModel.shouldClosePrompt() {
                 if let completion = viewModel.completion {
@@ -157,16 +159,16 @@ private struct PermissionLine: View {
                 VStack(alignment: .leading) {
                     Text(permission.title)
                         .font(.system(size: 14))
-                        .foregroundStyle(PromptColor.primaryText)
+                        .foregroundStyle(PromptTheme.colors.primaryText)
                     if permission.isPushNotification {
-                        Text("Disabled")
+                        Text(PromptTheme.wordings.disabled)
                             .font(.system(size: 12))
-                            .foregroundStyle(PromptColor.secondaryText)
+                            .foregroundStyle(PromptTheme.colors.secondaryText)
                     }
                 }
             } else {
                 RoundedRectangle(cornerRadius: 5)
-                    .foregroundStyle(PromptColor.secondaryBackground)
+                    .foregroundStyle(PromptTheme.colors.secondaryBackground)
                     .frame(width: placeholderWidth)
                     .padding(5)
             }
@@ -186,7 +188,7 @@ private struct PermissionLine: View {
                     .padding(.trailing)
             } else {
                 RoundedRectangle(cornerRadius: 5)
-                    .foregroundStyle(PromptColor.secondaryBackground)
+                    .foregroundStyle(PromptTheme.colors.secondaryBackground)
                     .frame(width: 60)
                     .padding(5)
                     .padding(.trailing)
@@ -194,7 +196,7 @@ private struct PermissionLine: View {
         }
         .frame(height: 40)
         .padding(.vertical, 10)
-        .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(isHighlighted ? PromptColor.secondaryBackground : .clear))
+        .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(isHighlighted ? PromptTheme.colors.secondaryBackground : .clear))
         .scaleEffect(animationIsScaled ? 1.1 : 1.0)
         .shadow(radius: animationIsScaled ? 5 : 0)
     }
